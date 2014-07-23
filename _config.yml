@@ -1,0 +1,10 @@
+# Site settings
+title: Otrera Blog
+email: TheWitchAgatha@gmail.com
+description: "Developer blog for the Otrera open source RPG engine project"
+baseurl: ""
+github_username: AgathaTheWitch
+
+# Build settings
+markdown: kramdown
+permalink: pretty
