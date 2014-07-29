@@ -7,15 +7,21 @@ categories: Updates
 
 It's been a busy week, but Project Otrera is moving along steadily. Here is a list of updates:
 
-1. Recruiting is going fairly well. I've got five guys who have expressed interest and one who has actually set up an IRC channel for the project on Freednode (#Otrera). Going to check it out this weekend. If I can start dolling out minor tasks based on people's interests and skillsets, I think development speed should see a huge boost.
+Recruiting:
+
+Recruiting is going fairly well. I've got five guys who have expressed interest and one who has actually set up an IRC channel for the project on Freednode (#Otrera). Going to check it out this weekend. If I can start dolling out minor tasks based on people's interests and skillsets, I think development speed should see a huge boost.
 
 Recruiting efforts will stay focused on 4chan and Reddit for now. This isn't exactly the Linux kernel; a small focused team even working only part-time should be able to complete Project Otrera in a matter of months.
 
-2. New features since the last update include a content editor module and a number of refactor commits. The former will allow for easy tweaking of existing content items in everything.json. This includes characters, classes, skills, - you name it. Version 0.0.1 will see all content in a single JSON file.
+Coding:
 
-The refactors improve some code cleanup and improvements. I've added docstrings and comments in a number of places. I have tweaked a few classes and methods to make things more modular and flexible. The directory structure also now reflects the concepts of 'engines' and 'games', the latter being a subset of the former. Considering how busy I have been, it isn't bad for three days' work.
+New features since the last update include a content editor module and a number of refactor commits. The former will allow for easy tweaking of existing content items in everything.json. This includes characters, classes, skills, - you name it. Version 0.0.1 will see all content in a single JSON file.
 
-3. I wrote this down as a github issue for the project but I'll briefly mention it here. There are two significant code changes I need to make in the coming days. Neither were planned; both are the result of some reflection on D&D.
+The refactors include some code cleanup and other improvements. I've added docstrings and comments in a number of places. I have tweaked a few classes and methods to make things more modular and flexible. The directory structure also now reflects the concepts of 'engines' and 'games', the latter being a subset of the former. Considering how busy I have been, it isn't bad for three days' work.
+
+Other changes
+
+I wrote this down as a github issue for the project but I'll briefly mention it here. There are two significant code changes I need to make in the coming days. Neither were planned; both are the result of some reflection on D&D.
 
 The first and arguably simpler issue is that I need to simplify my objects. Character and skill objects probably don't need dictionary objects; if we can flatten them such that they only use strings, ints, and lists, it will make batch updates from CSV's much easier (among other things).
 
