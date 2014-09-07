@@ -1,0 +1,32 @@
+---
+layout: post
+title: "Text"
+date: 2014-09-07 17:32:49
+categories: Updates
+---
+
+Tabletop games are complex beasts. Encoding them in a machine-readable way is not a simple challenge.
+
+One thing I accepted early on in creating Otrera is that there is a wide class of game elements that simply cannot be encoded in JSON in a software-intelligible way. Consider a typical RPG rulebook, something like Shadowrun or Ars Magica. You have a thick tome with hundreds of pages of text. Much of this simply will not translate to some JSON key-value pair.
+
+Lets consider an example: Werewolves. How do they work in your game? If you are savvy, you COULD design your werewolf mechanics to be very straightforward and easily encoded. For example, lets say that if a character has the race 'werewolf', they get a transformation ability that just doubles their stats for five turns, then puts them in 'sleep' status.
+
+Pretty straightforward and easy to encode. Unfortunately, most games do not want to be this simple. In most games, the rules are much more involved. You only transform during a full-moon. Your hostility level toward your companions is a function of their races / classes / abilities. The skills and stat bonuses you get are in part a function of context - surroundings, hunger level, etc. The GM has to fudge and dictate a number of things for you to role-play the character accurately.
+
+In this situation, there is no easy way to descibe all of this in a simple JSON file. Barring some extremely impressive NLP, a computer cannot make sense of the above rules and output a few integers to describe the character.
+
+How can Otrera deal with this issue? The answer, is the 'Text' construct.
+
+The Text construct is the universal way Otrera handles large blobs of descriptive text. Whenever some game element needs paragraphs of text for its description, the engine JSON simply has a key that points to the relevant textfile.
+
+The Text construct can make use of a number of schemes for different types of text. For example, you can have a 'Story' scheme, for textfiles that describe the game's plot. You can have a 'Character Bio' scheme for NPC descriptions. For game elements with complex conditions and features, I use a 'Rules' scheme. Whenever you have something like the Werewolf mechanic above, you reference a named 'Rule' that then finds the relevant textfile. This lets you create elements and mechanics that are as weird and random as you can possibly imagine.
+
+The downside to using too many 'Rules' is that it weakens Otrera's ability to analyze and balance your game. Otrera cannot interpret these Rule textfiles - only render them. This means that game designers will have to add weights to these rules manually. 'Weights' are just direct key-value mappings of some integer connected to some character attribute or element. This lets the developer directly tell Otrera how a complex mechanic affects balance.
+
+To do this properly, the game designer needs to do playtesting. Otherwise, the weights they add will just be random guesses that could actually corrupt your analytics. The other solution, as mentioned above, is to intentionally design your game in a way that makes textfile descriptions of mechanics unnecessary. This takes some focus, but is a good approach for people seriously worried about balance.
+
+If story / atmosphere / flexibility are more your priority, feel free to use 'Rules' to your heart's content. You can have all sorts of random mechanics, like laser vision that only works on even birthdays, and it'll all still be nicely packaged, formatted, and rendered by Otrera.
+
+With the Text construct, we can finally get that entire Pathfinder rulebook into the Otrera format.
+
+It's a beautiful thing.
